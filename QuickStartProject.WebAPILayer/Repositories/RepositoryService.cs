@@ -19,10 +19,10 @@ namespace QuickStartProject.WebAPILayer.Repositories
             _context.SaveChangesAsync();
         }
 
-        public void Delete(T entity)
+        public async Task DeleteAsync(T entity)
         {
             _table.Remove(entity);
-            _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
         }
 
         public async Task<List<T>> GetAllAsync()
@@ -35,10 +35,10 @@ namespace QuickStartProject.WebAPILayer.Repositories
             return await _table.FindAsync(id);
         }
 
-        public void Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             _table.Update(entity);
-            _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
         }
     }
 }

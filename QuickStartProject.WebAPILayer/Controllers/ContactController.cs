@@ -36,5 +36,29 @@ namespace QuickStartProject.WebAPILayer.Controllers
             await _service.AddAsync(mapped);
             return Ok("Eklendi");
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateContact(UpdateContactDTO dto)
+        {
+            var mapped = _mapper.Map<Contact>(dto);
+            await _service.UpdateAsync(mapped);
+            return Ok("Güncellendi");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteContact(int id)
+        {
+            var values = await _service.GetByIdAsync(id);
+            await _service.DeleteAsync(values);
+            return Ok("Silindi");
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdContact(int id)
+        {
+            var value = await _service.GetByIdAsync(id);
+            var mapped = _mapper.Map<ResultContactDTO>(value);
+            return Ok(mapped);
+        }
     }
 }
