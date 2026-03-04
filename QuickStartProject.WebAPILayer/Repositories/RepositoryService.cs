@@ -16,7 +16,7 @@ namespace QuickStartProject.WebAPILayer.Repositories
         public async Task AddAsync(T entity)
         {
            await _table.AddAsync(entity);
-            _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(T entity)
