@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="QuickStartProject.WebAPILayer/QuickStartProject.WebAPILayer.csproj" />
+  <Project Path="QuickStartProject.WebUILayer/QuickStartProject.WebUILayer.csproj" />
+</Solution>

@@ -1,0 +1,6 @@
+@QuickStartProject.WebAPILayer_HostAddress = http://localhost:5019
+
+GET {{QuickStartProject.WebAPILayer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
