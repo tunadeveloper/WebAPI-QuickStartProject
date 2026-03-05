@@ -71,7 +71,7 @@
                                             <td>@item.Id</td>
                                             <td>@item.Name</td>
                                             <td>@item.Role</td>
-                                            <td>@(item.Content != null && item.Content.Length > 50 ? item.Content.Substring(0, 50) + "..." : (item.Content ?? "-"))</td>
+                                            <td>@item.Content</td>
                                             <td class="text-end">
                                                 <a href="/Admin/Testimonial/UpdateTestimonial/@item.Id" class="btn btn-sm btn-light">
                                                     <i class="ti ti-edit"></i>

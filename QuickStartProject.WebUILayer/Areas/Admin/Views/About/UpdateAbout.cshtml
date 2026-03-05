@@ -63,9 +63,9 @@
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Görseller</label>
-                                    <input type="text" name="Images" value="@(Model.Images != null && Model.Images.Count > 0 ? Model.Images[0] : "")" class="form-control mb-1" placeholder="Görsel URL 1" />
-                                    <input type="text" name="Images" value="@(Model.Images != null && Model.Images.Count > 1 ? Model.Images[1] : "")" class="form-control mb-1" placeholder="Görsel URL 2" />
-                                    <input type="text" name="Images" value="@(Model.Images != null && Model.Images.Count > 2 ? Model.Images[2] : "")" class="form-control" placeholder="Görsel URL 3" />
+                                    <input type="text" name="Images" value="@Model.Images[0]" class="form-control mb-1" placeholder="Görsel URL 1" />
+                                    <input type="text" name="Images" value="@Model.Images[1]" class="form-control mb-1" placeholder="Görsel URL 2" />
+                                    <input type="text" name="Images" value="@Model.Images[2]" class="form-control" placeholder="Görsel URL 3" />
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">

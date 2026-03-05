@@ -1,65 +1,37 @@
+@model List<QuickStartProject.WebUILayer.DTOs.PricingDTOs.ResultPricingDTO>
+@{
+    var delay = 100;
+}
 <section id="pricing" class="pricing section">
     <div class="container section-title" data-aos="fade-up">
         <h2>Fiyatlandırma</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Her bütçeye ve ihtiyaca uygun esnek planlarımızla tanışın. Sürpriz maliyetlerle karşılaşmadan, işletmenizin büyüklüğüne en uygun paketi seçerek hemen başlayın.</p>
     </div>
     <div class="container">
         <div class="row gy-4">
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="pricing-item">
-                    <h3>Ücretsiz Plan</h3>
-                    <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>₺</sup>0<span> / ay</span></h4>
-                    <a href="#" class="cta-btn">Ücretsiz deneyin</a>
-                    <p class="text-center small">Kredi kartı gerekmez</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                        <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                        <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                        <li class="na"><i class="bi bi-x"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                        <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="@delay">
+                    <div class="pricing-item @(item.IsFeatured ? "featured" : "")">
+                        @if (item.IsFeatured)
+                        {
+                            <p class="popular">Popüler</p>
+                        }
+                        <h3>@item.Name</h3>
+                        <p class="description">@item.Description</p>
+                        <h4><sup>₺</sup>@item.Price<span> / @item.Period</span></h4>
+                        <a href="#contact" class="cta-btn">Ücretsiz deneyin</a>
+                        <p class="text-center small">Kredi kartı gerekmez</p>
+                        <ul>
+                            @foreach (var feature in item.Features)
+                            {
+                                <li><i class="bi bi-check"></i> <span>@feature</span></li>
+                            }
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="pricing-item featured">
-                    <p class="popular">Popüler</p>
-                    <h3>İş Planı</h3>
-                    <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>₺</sup>29<span> / ay</span></h4>
-                    <a href="#" class="cta-btn">Ücretsiz deneyin</a>
-                    <p class="text-center small">Kredi kartı gerekmez</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                        <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                        <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                        <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                        <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                <div class="pricing-item">
-                    <h3>Geliştirici Planı</h3>
-                    <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                    <h4><sup>₺</sup>49<span> / ay</span></h4>
-                    <a href="#" class="cta-btn">Ücretsiz deneyin</a>
-                    <p class="text-center small">Kredi kartı gerekmez</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                        <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                        <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                        <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                        <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                        <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                    </ul>
-                </div>
-            </div>
+                delay += 100;
+            }
         </div>
     </div>
 </section>

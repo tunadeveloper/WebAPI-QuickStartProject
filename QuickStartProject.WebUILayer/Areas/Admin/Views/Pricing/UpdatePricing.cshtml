@@ -76,11 +76,11 @@
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Özellikler</label>
-                                    <input type="text" name="Features" value="@(Model.Features != null && Model.Features.Count > 0 ? Model.Features[0] : "")" class="form-control mb-1" placeholder="Özellik 1" />
-                                    <input type="text" name="Features" value="@(Model.Features != null && Model.Features.Count > 1 ? Model.Features[1] : "")" class="form-control mb-1" placeholder="Özellik 2" />
-                                    <input type="text" name="Features" value="@(Model.Features != null && Model.Features.Count > 2 ? Model.Features[2] : "")" class="form-control mb-1" placeholder="Özellik 3" />
-                                    <input type="text" name="Features" value="@(Model.Features != null && Model.Features.Count > 3 ? Model.Features[3] : "")" class="form-control mb-1" placeholder="Özellik 4" />
-                                    <input type="text" name="Features" value="@(Model.Features != null && Model.Features.Count > 4 ? Model.Features[4] : "")" class="form-control" placeholder="Özellik 5" />
+                                    <input type="text" name="Features" value="@Model.Features[0]" class="form-control mb-1" placeholder="Özellik 1" />
+                                    <input type="text" name="Features" value="@Model.Features[1]" class="form-control mb-1" placeholder="Özellik 2" />
+                                    <input type="text" name="Features" value="@Model.Features[2]" class="form-control mb-1" placeholder="Özellik 3" />
+                                    <input type="text" name="Features" value="@Model.Features[3]" class="form-control mb-1" placeholder="Özellik 4" />
+                                    <input type="text" name="Features" value="@Model.Features[4]" class="form-control" placeholder="Özellik 5" />
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">

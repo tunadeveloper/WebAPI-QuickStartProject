@@ -71,7 +71,7 @@
                                             <td>@item.Id</td>
                                             <td>@item.Name</td>
                                             <td>@item.Email</td>
-                                            <td>@(item.Subject != null && item.Subject.Length > 30 ? item.Subject.Substring(0, 30) + "..." : (item.Subject ?? "-"))</td>
+                                            <td>@item.Subject</td>
                                             <td class="text-end">
                                                 <a href="/Admin/Message/UpdateMessage/@item.Id" class="btn btn-sm btn-light">
                                                     <i class="ti ti-edit"></i>

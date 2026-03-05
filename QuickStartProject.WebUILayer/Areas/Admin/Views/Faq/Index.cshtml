@@ -69,7 +69,7 @@
                                             <tr>
                                                 <td>@item.Id</td>
                                                 <td>@item.Question</td>
-                                                <td>@(item.Answer != null && item.Answer.Length > 80 ? item.Answer.Substring(0, 80) + "..." : (item.Answer ?? "-"))</td>
+                                                <td>@item.Answer</td>
                                                 <td class="text-end">
                                                 <a href="/Admin/Faq/UpdateFaq/@item.Id" class="btn btn-sm btn-light">
                                                         <i class="ti ti-edit"></i>

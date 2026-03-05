@@ -71,7 +71,7 @@
                                             <td>@item.Id</td>
                                             <td>@item.Icon</td>
                                             <td>@item.Title</td>
-                                            <td>@(item.Description != null && item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : (item.Description ?? "-"))</td>
+                                            <td>@item.Description</td>
                                             <td class="text-end">
                                                 <a href="/Admin/Service/UpdateService/@item.Id" class="btn btn-sm btn-light">
                                                     <i class="ti ti-edit"></i>
