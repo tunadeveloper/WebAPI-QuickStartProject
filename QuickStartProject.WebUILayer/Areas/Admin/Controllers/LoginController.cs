@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuickStartProject.WebUILayer.DTOs.LoginDTOs;
@@ -7,6 +8,7 @@ using System.Text;
 namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

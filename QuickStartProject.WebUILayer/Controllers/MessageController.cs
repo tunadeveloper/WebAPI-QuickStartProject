@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuickStartProject.WebUILayer.DTOs.MessageDTOs;
@@ -5,6 +6,7 @@ using System.Text;
 
 namespace QuickStartProject.WebUILayer.Controllers
 {
+    [AllowAnonymous]
     public class MessageController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -21,7 +21,6 @@ namespace QuickStartProject.WebAPILayer.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetAboutList()
         {
             var values = await _service.GetAllAsync();
