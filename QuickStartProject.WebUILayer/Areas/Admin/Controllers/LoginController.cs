@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuickStartProject.WebUILayer.DTOs.LoginDTOs;
@@ -18,7 +20,10 @@ namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Index() => View();
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Index(LoginDTO loginDto)
@@ -33,7 +38,6 @@ namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
                 return View();
             }
             return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-
         }
     }
 }

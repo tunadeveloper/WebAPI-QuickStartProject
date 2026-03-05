@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Error/401";
+        options.LoginPath = "/Admin/Login/Index";
         options.AccessDeniedPath = "/Error/401";
     });
 builder.Services.AddAuthorization();

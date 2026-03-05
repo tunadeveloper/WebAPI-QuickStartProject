@@ -1,4 +1,4 @@
-﻿@using QuickStartProject.WebUILayer.DTOs.LoginDTOs
+@using QuickStartProject.WebUILayer.DTOs.LoginDTOs
 @{
     Layout = null;
 }
@@ -28,6 +28,7 @@
                 <p>Lütfen devam etmek için giriş yapın</p>
             </div>
             <form asp-area="Admin" asp-controller="Login" asp-action="Index" method="post" class="login-form" id="loginForm" novalidate">
+                <input type="hidden" name="returnUrl" value="@(ViewBag.ReturnUrl ?? "")" />
                 <div class="form-group">
                     <div class="input-group neu-input">
                         <input type="email" id="email" name="Email" required autocomplete="email" placeholder=" ">
