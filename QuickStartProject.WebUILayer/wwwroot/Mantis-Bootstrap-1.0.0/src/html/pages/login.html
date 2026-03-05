@@ -1,93 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- [Head] start -->
-
+<html lang="tr">
 <head>
-  @@include('../layouts/head-page-meta.html', {'title': 'Login'}) @@include('../layouts/head-css.html')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Giriş Yap</title>
+
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/fonts/inter/inter.css" />
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/fonts/feather.css" />
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/fonts/material.css" />
+    <link rel="stylesheet" href="/Mantis-Bootstrap-1.0.0/dist/assets/css/style.css" />
+
+    <style>
+
+        html, body {
+            height: 100%;
+        }
+
+        .auth-main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-wrapper {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .auth-wrapper.v3 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center; /* dikey ortalama */
+            justify-content: center;
+        }
+
+        .auth-form {
+            width: 100%;
+            max-width: 420px;
+        }
+    </style>
+
 </head>
-<!-- [Head] end -->
-<!-- [Body] Start -->
-
 <body>
-  @@include('../layouts/loader.html')
-  <div class="auth-main">
-    <div class="auth-wrapper v3">
-      <div class="auth-form">
-        <div class="auth-header">
-          <a href="#"><img src="../assets/images/logo-dark.svg" alt="img"></a>
-        </div>
-        <div class="card my-5">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-end mb-4">
-              <h3 class="mb-0"><b>Login</b></h3>
-              <a href="#" class="link-primary">Don't have an account?</a>
-            </div>
-            <div class="form-group mb-3">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-control" placeholder="Email Address">
-            </div>
-            <div class="form-group mb-3">
-              <label class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="d-flex mt-1 justify-content-between">
-              <div class="form-check">
-                <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="">
-                <label class="form-check-label text-muted" for="customCheckc1">Keep me sign in</label>
-              </div>
-              <h5 class="text-secondary f-w-400">Forgot Password?</h5>
-            </div>
-            <div class="d-grid mt-4">
-              <button type="button" class="btn btn-primary">Login</button>
-            </div>
-            <div class="saprator mt-3">
-              <span>Login with</span>
-            </div>
-            <div class="row">
-              <div class="col-4">
-                <div class="d-grid">
-                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="../assets/images/authentication/google.svg" alt="img"> <span class="d-none d-sm-inline-block"> Google</span>
-                  </button>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="d-grid">
-                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="../assets/images/authentication/twitter.svg" alt="img"> <span class="d-none d-sm-inline-block"> Twitter</span>
-                  </button>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="d-grid">
-                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="../assets/images/authentication/facebook.svg" alt="img"> <span class="d-none d-sm-inline-block"> Facebook</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="auth-footer row">
-          <!-- <div class=""> -->
-            <div class="col my-1">
-              <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
-            </div>
-            <div class="col-auto my-1">
-              <ul class="list-inline footer-link mb-0">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                <li class="list-inline-item"><a href="#">Contact us</a></li>
-              </ul>
-            </div>
-          <!-- </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- [ Main Content ] end -->
-  @@include('../layouts/footer-js.html') 
-</body>
-<!-- [Body] end -->
 
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+
+    <div class="auth-main">
+
+        <div class="auth-wrapper v3">
+
+            <div class="auth-form">
+
+                <div class="auth-header text-center">
+                    <a href="#">
+                        <img src="/Mantis-Bootstrap-1.0.0/dist/assets/images/logo-dark.svg" alt="logo">
+                    </a>
+                </div>
+
+                <div class="card my-4">
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between align-items-end mb-4">
+                            <h3 class="mb-0"><b>Giriş Yap</b></h3>
+                            <a href="#" class="link-primary">Hesabın yok mu?</a>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">E-posta Adresi</label>
+                            <input type="email" class="form-control" placeholder="E-posta adresinizi girin">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Şifre</label>
+                            <input type="password" class="form-control" placeholder="Şifrenizi girin">
+                        </div>
+
+                        <div class="d-flex mt-1 justify-content-between">
+
+                            <div class="form-check">
+                                <input class="form-check-input input-primary" type="checkbox" id="remember" checked>
+                                <label class="form-check-label text-muted" for="remember">
+                                    Beni hatırla
+                                </label>
+                            </div>
+
+                            <h6 class="text-secondary">Şifremi unuttum</h6>
+
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary">Giriş Yap</button>
+                        </div>
+
+                        <div class="saprator mt-3">
+                            <span>Şununla giriş yap</span>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-4">
+                                <div class="d-grid">
+                                    <button class="btn mt-2 btn-light-primary bg-light text-muted">
+                                        <img src="/Mantis-Bootstrap-1.0.0/dist/assets/images/authentication/google.svg">
+                                        <span class="d-none d-sm-inline-block"> Google</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="d-grid">
+                                    <button class="btn mt-2 btn-light-primary bg-light text-muted">
+                                        <img src="/Mantis-Bootstrap-1.0.0/dist/assets/images/authentication/twitter.svg">
+                                        <span class="d-none d-sm-inline-block"> Twitter</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="d-grid">
+                                    <button class="btn mt-2 btn-light-primary bg-light text-muted">
+                                        <img src="/Mantis-Bootstrap-1.0.0/dist/assets/images/authentication/facebook.svg">
+                                        <span class="d-none d-sm-inline-block"> Facebook</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="auth-footer row">
+
+                    <div class="col my-1">
+                        <p class="m-0">Telif Hakkı © <a href="#">Codedthemes</a></p>
+                    </div>
+
+                    <div class="col-auto my-1">
+                        <ul class="list-inline footer-link mb-0">
+                            <li class="list-inline-item"><a href="#">Ana Sayfa</a></li>
+                            <li class="list-inline-item"><a href="#">Gizlilik Politikası</a></li>
+                            <li class="list-inline-item"><a href="#">İletişim</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/Mantis-Bootstrap-1.0.0/dist/assets/js/plugins/popper.min.js"></script>
+    <script src="/Mantis-Bootstrap-1.0.0/dist/assets/js/plugins/simplebar.min.js"></script>
+    <script src="/Mantis-Bootstrap-1.0.0/dist/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="/Mantis-Bootstrap-1.0.0/dist/assets/js/custom.js"></script>
+
+</body>
 </html>
