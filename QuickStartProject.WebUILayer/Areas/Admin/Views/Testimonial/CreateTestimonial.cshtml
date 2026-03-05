@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Yeni Referans Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Yeni Referans Ekle</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/Admin/Dashboard/Index">Ana Sayfa</a></li>
+                            <li class="breadcrumb-item"><a href="/Admin/Testimonial/Index">Referanslar</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Yeni Ekle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="ti ti-quote me-2"></i>Referans Bilgileri</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="ti ti-check me-2"></i>@TempData["Success"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        else if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="ti ti-alert-circle me-2"></i>@TempData["Error"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        <form asp-area="Admin" asp-controller="Testimonial" asp-action="CreateTestimonial" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Ad</label>
+                                    <input type="text" name="Name" value="" class="form-control" placeholder="Ad" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Rol</label>
+                                    <input type="text" name="Role" value="" class="form-control" placeholder="Rol" />
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Görsel URL</label>
+                                    <input type="text" name="ImageUrl" value="" class="form-control" placeholder="Görsel URL" />
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label class="form-label">İçerik</label>
+                                    <textarea name="Content" class="form-control" rows="4" placeholder="İçerik"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="ti ti-device-floppy me-1"></i>Kaydet
+                                    </button>
+                                    <a href="/Admin/Testimonial/Index" class="btn btn-light">İptal</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

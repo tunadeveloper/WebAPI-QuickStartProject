@@ -1,0 +1,21 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+@await Component.InvokeAsync("_AdminHeadComponentPartial")
+<body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+@await Component.InvokeAsync("_AdminNavComponentPartial")
+@await Component.InvokeAsync("_AdminHeaderComponentPartial")
+@RenderBody()
+@await Component.InvokeAsync("_AdminFooterComponentPartial")
+@await RenderSectionAsync("Scripts", required: false)
+@await Component.InvokeAsync("_AdminScriptsComponentPartial")
+</body>
+</html>

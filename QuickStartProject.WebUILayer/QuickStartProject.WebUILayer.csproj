@@ -6,4 +6,24 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\ViewComponents\" />
+    <Folder Include="Areas\Admin\Views\Shared\Components\" />
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Mantis-Bootstrap-1.0.0\.DS_Store" />
+    <None Include="wwwroot\Mantis-Bootstrap-1.0.0\.github\workflows\main.yml" />
+    <None Include="wwwroot\Mantis-Bootstrap-1.0.0\.github\workflows\prod.yml" />
+    <None Include="wwwroot\Mantis-Bootstrap-1.0.0\dist\.DS_Store" />
+    <None Include="wwwroot\Mantis-Bootstrap-1.0.0\src\.DS_Store" />
+  </ItemGroup>
+
 </Project>
