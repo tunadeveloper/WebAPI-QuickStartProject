@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuickStartProject.WebAPILayer.DTOs.AboutDTOs;
 using QuickStartProject.WebAPILayer.Entities;
@@ -20,6 +21,7 @@ namespace QuickStartProject.WebAPILayer.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAboutList()
         {
             var values = await _service.GetAllAsync();
