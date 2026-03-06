@@ -41,7 +41,7 @@ namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://real-time-news-data.p.rapidapi.com/search?query=Business&limit=10&time_published=anytime&country=TR&lang=tr"),
+                RequestUri = new Uri("https://real-time-news-data.p.rapidapi.com/search?query=Girisimcilik&limit=10&time_published=anytime&country=TR&lang=tr"),
                 Headers =
                 {
                     { "x-rapidapi-key", "cdb47aa04cmsh29c897da07c93f7p193945jsn7a061eae88f6" },
