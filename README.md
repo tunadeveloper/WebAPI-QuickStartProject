@@ -4,16 +4,16 @@
 ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
 ![Entity Framework Core](https://img.shields.io/badge/EF%20Core-512BD4?style=flat-square&logo=dotnet&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=json-web-tokens&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-D14836?style=flat-square&logo=json-web-tokens&logoColor=white)
 ![Scalar](https://img.shields.io/badge/Scalar-FFDB1C?style=flat-square&logo=scalar&logoColor=black)
 ![AutoMapper](https://img.shields.io/badge/AutoMapper-8A2BE2?style=flat-square&logo=nuget&logoColor=white)
 ![FluentValidation](https://img.shields.io/badge/FluentValidation-42A5F5?style=flat-square&logo=nuget&logoColor=white)
 
 ## 📖 Proje Hakkında
 
-Bu proje, kurumsal bir landing page ve yönetim panelini kapsayan, modern mimari prensiplerine uygun **ASP.NET Core 10** tabanlı bir ekosistemdir. Projeyi, verinin yönetimini sağlayan bir **REST API** katmanı ve bu API'yi tüketen, son kullanıcıya ve yöneticiye hitap eden bir **MVC Web arayüzü** olmak üzere iki ana katman üzerine inşa ettim.
+Kurumsal bir landing page ve yönetim panelini kapsayan, modern mimari prensiplerine uygun **ASP.NET Core 10** tabanlı bir projedir. Projeyi, verinin yönetimini sağlayan bir **REST API** katmanı ve bu API'yi tüketen, son kullanıcıya ve yöneticiye hitap eden bir **MVC Web arayüzü** olmak üzere iki ana katman üzerine kurdum.
 
-Sistem; hakkımızda, hizmetler, fiyatlandırma ve SSS gibi tüm site içeriğini API üzerinden dinamik olarak yönetebilmemi sağlıyor. Admin paneli üzerinden yaptığım tüm CRUD işlemleri anında anasayfaya yansımakta, Dashboard üzerinde ise **RapidAPI** entegrasyonu ile gerçek zamanlı dünya haberlerini listelemekteyim.
+Sistem; hakkımızda, hizmetler, fiyatlandırma ve SSS gibi tüm site içeriğini API üzerinden dinamik olarak yönetebilmemi sağlıyor. Admin paneli üzerinden yaptığım tüm CRUD işlemleri anında anasayfaya yansımakta, Dashboard üzerinde ise **RapidAPI** entegrasyonu ile gerçek zamanlı dünya haberlerini listeledim.
 
 ## 🏗️ Mimari ve Teknik Detaylar
 
@@ -21,7 +21,7 @@ Projeyi geliştirirken kodun sürdürülebilirliği, güvenliği ve performansı
 
 | Kategori | Teknoloji / Kütüphane | Kullanım Amacı |
 |----------|-----------------------|----------------|
-| **Framework** | .NET 10 | En güncel .NET çalışma zamanı |
+| **Framework** | .NET 10 | En güncel .NET sürümü |
 | **Veritabanı** | Microsoft SQL Server | İlişkisel veri depolama |
 | **ORM** | Entity Framework Core | Veritabanı modelleme ve erişim |
 | **API Dokümantasyonu** | Scalar | Modern ve interaktif API test arayüzü |
@@ -34,7 +34,7 @@ Projeyi geliştirirken kodun sürdürülebilirliği, güvenliği ve performansı
 
 
 ### 🔧 Geliştirme Prensipleri
-* **2 Katmanlı Mimari:** İş mantığını API tarafında (WebAPILayer) tutarken, sunum ve kullanıcı etkileşimini MVC tarafında (WebUILayer) izole ettim.
+* **2 Katmanlı Mimari:** İş mantığını API tarafında (WebAPILayer) tutarken, sunum ve kullanıcı etkileşimini MVC tarafında (WebUILayer) geliştirdim.
 * **Repository Design Pattern:** Veri erişim metotlarını soyutlayarak kod tekrarının önüne geçtim.
 * **DTO (Data Transfer Objects):** API trafiğinde veriyi güvenli ve optimize bir şekilde taşımak için özelleşmiş DTO sınıfları kullandım.
 * **Dinamik Hata Yönetimi:** 401, 404 ve 500 hataları için kullanıcıyı karşılayan özel, tema ile uyumlu hata sayfaları geliştirdim.
@@ -44,10 +44,10 @@ Projeyi geliştirirken kodun sürdürülebilirliği, güvenliği ve performansı
 ### 🛡️ REST API Katmanı (WebAPILayer)
 * **JWT Auth:** Endpointleri korumak için Identity ile entegre JWT altyapısını kurdum.
 * **Scalar Entegrasyonu:** Klasik Swagger yerine daha şık bir dökümantasyon sunan Scalar kütüphanesini kullandım.
-* **Generic Repository:** Tüm entity'ler için ortak CRUD operasyonlarını tek merkezden yönetiyorum.
+* **Generic Repository:** Tüm entity'ler için ortak CRUD operasyonlarını tek merkezden yönettim.
 
 ### 💻 MVC & Admin Paneli (WebUILayer)
-* **Dashboard:** Gelen mesaj/abonelik sayıları ve **RapidAPI** üzerinden çektiğim son 6 güncel haberin kart tasarımıyla listelenmesi.
+* **Dashboard:** Gelen mesaj/abonelik sayıları ve **RapidAPI** üzerinden çektiğim son 6 güncel haberin listelenmesi.
 * **ViewComponent Yapısı:** Anasayfadaki Hero, Services, Pricing gibi alanları API'den beslenen bağımsız bileşenler olarak tasarladım.
 * **İletişim Formu:** Anasayfadan gönderilen mesajların `MessageController` aracılığıyla API'ye POST edilmesi.
 * **Yönetim Paneli:** Hakkımızda, İletişim, SSS, Hizmetler ve Referanslar gibi tüm modüller için tam kapsamlı CRUD desteği.
@@ -76,13 +76,25 @@ WebAPI-QuickStartProject/
 
 ```
 
+# 🏠 Anasayfa
+
 <img width="1920" height="3447" alt="Image" src="https://github.com/user-attachments/assets/41696206-fd0f-45ca-a48b-67b45123e206" />
 <img width="1920" height="2294" alt="Image" src="https://github.com/user-attachments/assets/b1c47192-2d9e-4de1-9275-7e46c446256d" />
 <img width="1920" height="2897" alt="Image" src="https://github.com/user-attachments/assets/0ba21e6a-da6f-42a6-a2f7-40a511df94f6" />
 
+# 🌌 Hata Sayfası
+
 <img width="1912" height="937" alt="Image" src="https://github.com/user-attachments/assets/fb967231-75ed-427f-b209-a4928343009f" />
+
+# 🔐 Giriş Paneli
+
 <img width="1913" height="933" alt="Image" src="https://github.com/user-attachments/assets/e4c9ac5a-e3e0-4974-87d6-1fcb4620252d" />
+
+# 📑 Scalar'da API Endpointleri
+
 <img width="1902" height="934" alt="Image" src="https://github.com/user-attachments/assets/05175546-87b2-4adc-b5fc-1d8c289669f8" />
+
+# 🛠️ Admin Paneli
 
 <img width="1914" height="934" alt="Image" src="https://github.com/user-attachments/assets/4efe3d41-cc04-4835-a078-dbf502e239c7" />
 <img width="1913" height="934" alt="Image" src="https://github.com/user-attachments/assets/0b451524-30fc-4af7-ad9e-374162ff46dd" />
