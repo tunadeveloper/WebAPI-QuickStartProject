@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using QuickStartProject.WebUILayer.Areas.Admin.Models;
+using QuickStartProject.WebUILayer.DTOs.MessageDTOs;
+using QuickStartProject.WebUILayer.DTOs.NewsletterDTOs;
 
 namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
 {
@@ -7,7 +10,6 @@ namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
     public class DashboardController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private const string ApiBase = "https://localhost:7083/api";
 
         public DashboardController(IHttpClientFactory httpClientFactory)
         {
@@ -18,32 +20,46 @@ namespace QuickStartProject.WebUILayer.Areas.Admin.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            ViewBag.NewsletterCount = await GetCountAsync(client, $"{ApiBase}/Newsletter");
-            ViewBag.MessageCount = await GetCountAsync(client, $"{ApiBase}/Message");
-            ViewBag.TestimonialCount = await GetCountAsync(client, $"{ApiBase}/Testimonial");
-            ViewBag.FaqCount = await GetCountAsync(client, $"{ApiBase}/Faq");
-            ViewBag.ServiceCount = await GetCountAsync(client, $"{ApiBase}/Service");
-            ViewBag.PricingCount = await GetCountAsync(client, $"{ApiBase}/Pricing");
-            ViewBag.FeatureCount = await GetCountAsync(client, $"{ApiBase}/Feature");
-            ViewBag.FeaturedServiceCount = await GetCountAsync(client, $"{ApiBase}/FeaturedService");
+            var messageRes = await client.GetAsync("https://localhost:7083/api/Message");
+            var messagesList = new List<ResultMessageDTO>();
+            if (messageRes.IsSuccessStatusCode)
+            {
+                var jsonMsg = await messageRes.Content.ReadAsStringAsync();
+                messagesList = JsonConvert.DeserializeObject<List<ResultMessageDTO>>(jsonMsg);
+            }
+            ViewBag.MessageCount = messagesList.Count;
+
+            var newsletterRes = await client.GetAsync("https://localhost:7083/api/Newsletter");
+            var newsletterList = new List<ResultNewsletterDTO>();
+            if (newsletterRes.IsSuccessStatusCode)
+            {
+                var jsonNews = await newsletterRes.Content.ReadAsStringAsync();
+                newsletterList = JsonConvert.DeserializeObject<List<ResultNewsletterDTO>>(jsonNews);
+            }
+            ViewBag.NewsletterCount = newsletterList.Count;
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://real-time-news-data.p.rapidapi.com/search?query=Business&limit=10&time_published=anytime&country=TR&lang=tr"),
+                Headers =
+                {
+                    { "x-rapidapi-key", "cdb47aa04cmsh29c897da07c93f7p193945jsn7a061eae88f6" },
+                    { "x-rapidapi-host", "real-time-news-data.p.rapidapi.com" }
+                }
+            };
+
+            var rapidNews = new List<Datum>();
+            using var response = await client.SendAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+                var news = JsonConvert.DeserializeObject<News>(body);
+                rapidNews = news.data.OrderByDescending(x => x.published_datetime_utc).Take(6).ToList();
+            }
+            ViewBag.RapidApiLast6 = rapidNews;
 
             return View();
-        }
-
-        private static async Task<int> GetCountAsync(HttpClient client, string url)
-        {
-            try
-            {
-                var response = await client.GetAsync(url);
-                if (!response.IsSuccessStatusCode) return 0;
-                var json = await response.Content.ReadAsStringAsync();
-                var list = JsonConvert.DeserializeObject<List<object>>(json);
-                return list?.Count ?? 0;
-            }
-            catch
-            {
-                return 0;
-            }
         }
     }
 }

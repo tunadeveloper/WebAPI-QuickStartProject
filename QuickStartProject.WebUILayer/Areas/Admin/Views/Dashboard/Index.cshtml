@@ -1,14 +1,8 @@
+@using QuickStartProject.WebUILayer.Areas.Admin.Models
 @{
     ViewData["Title"] = "Kontrol Paneli";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    var newsletterCount = ViewBag.NewsletterCount as int? ?? 0;
-    var messageCount = ViewBag.MessageCount as int? ?? 0;
-    var testimonialCount = ViewBag.TestimonialCount as int? ?? 0;
-    var faqCount = ViewBag.FaqCount as int? ?? 0;
-    var serviceCount = ViewBag.ServiceCount as int? ?? 0;
-    var pricingCount = ViewBag.PricingCount as int? ?? 0;
-    var featureCount = ViewBag.FeatureCount as int? ?? 0;
-    var featuredServiceCount = ViewBag.FeaturedServiceCount as int? ?? 0;
+    var rapidNews = ViewBag.RapidApiLast6 as List<Datum>;
 }
 
 <div class="pc-container">
@@ -29,14 +23,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-xl-3">
+            <div class="col-md-6 col-xl-6">
                 <a href="/Admin/Newsletter/Index" class="text-decoration-none">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
                                     <h6 class="mb-2 f-w-400 text-muted">Bülten Aboneleri</h6>
-                                    <h4 class="mb-0">@newsletterCount</h4>
+                                    <h4 class="mb-0">@ViewBag.NewsletterCount</h4>
                                 </div>
                                 <div class="avtar avtar-lg bg-light-primary">
                                     <i class="ti ti-news f-24"></i>
@@ -46,119 +40,17 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6 col-xl-3">
+            <div class="col-md-6 col-xl-6">
                 <a href="/Admin/Message/Index" class="text-decoration-none">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
                                     <h6 class="mb-2 f-w-400 text-muted">Gelen Mesajlar</h6>
-                                    <h4 class="mb-0">@messageCount</h4>
+                                    <h4 class="mb-0">@ViewBag.MessageCount</h4>
                                 </div>
                                 <div class="avtar avtar-lg bg-light-info">
                                     <i class="ti ti-mail f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/Testimonial/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Referanslar</h6>
-                                    <h4 class="mb-0">@testimonialCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-success">
-                                    <i class="ti ti-quote f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/Faq/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Sıkça Sorulan Sorular</h6>
-                                    <h4 class="mb-0">@faqCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-warning">
-                                    <i class="ti ti-help f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/Service/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Hizmetler</h6>
-                                    <h4 class="mb-0">@serviceCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-primary">
-                                    <i class="ti ti-briefcase f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/FeaturedService/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Öne Çıkan Hizmetler</h6>
-                                    <h4 class="mb-0">@featuredServiceCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-danger">
-                                    <i class="ti ti-star f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/Feature/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Özellikler</h6>
-                                    <h4 class="mb-0">@featureCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-info">
-                                    <i class="ti ti-list f-24"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="/Admin/Pricing/Index" class="text-decoration-none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-2 f-w-400 text-muted">Fiyat Planları</h6>
-                                    <h4 class="mb-0">@pricingCount</h4>
-                                </div>
-                                <div class="avtar avtar-lg bg-light-success">
-                                    <i class="ti ti-currency-dollar f-24"></i>
                                 </div>
                             </div>
                         </div>
@@ -170,40 +62,35 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0"><i class="ti ti-link me-2"></i>Hızlı Erişim</h5>
+                        <h5 class="mb-0"><i class="ti ti-news me-2"></i>Haberler</h5>
                     </div>
                     <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/About/UpdateAbout" class="btn btn-outline-primary w-100">
-                                    <i class="ti ti-info-circle d-block mb-1"></i>Hakkımızda
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/Contact/UpdateContact" class="btn btn-outline-primary w-100">
-                                    <i class="ti ti-phone d-block mb-1"></i>İletişim
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/Faq/Index" class="btn btn-outline-primary w-100">
-                                    <i class="ti ti-help d-block mb-1"></i>SSS
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/Testimonial/CreateTestimonial" class="btn btn-outline-success w-100">
-                                    <i class="ti ti-plus d-block mb-1"></i>Yeni Referans
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/Message/Index" class="btn btn-outline-info w-100">
-                                    <i class="ti ti-mail d-block mb-1"></i>Mesajlar
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2">
-                                <a href="/Admin/Newsletter/Index" class="btn btn-outline-secondary w-100">
-                                    <i class="ti ti-news d-block mb-1"></i>Bülten
-                                </a>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        <th>Başlık</th>
+                                        <th>Kaynak</th>
+                                        <th>Özet</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in rapidNews)
+                                    {
+                                        <tr>
+                                            <td>@item.published_datetime_utc.ToString("dd MMMM HH:mm")</td>
+                                            <td>@item.title</td>
+                                            <td>@item.source_name</td>
+                                            <td class="text-muted small">@(item.snippet?.Length > 80 ? item.snippet.Substring(0, 80) + "..." : item.snippet)</td>
+                                            <td>
+                                                <a href="@item.link" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Görüntüle</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
